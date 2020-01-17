@@ -33,10 +33,10 @@ def cityreader(cities=[]):
   # `cities` list
     
   with open("cities.csv", newline='') as f:
-
-    data = csv.reader(f.readlines()[1:])
+    next(f)
+    data = csv.reader(f)
     for row in data:
-      cities.append(City(row[0],row[3],row[4]))
+      cities.append(City(row[0], float(row[3]), float(row[4])))
 
     # cities.append( f.readlines()[1:])
 
